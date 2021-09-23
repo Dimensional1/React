@@ -6,7 +6,7 @@ import Form from './components/Form';
 function App() {
   return (
   <>
-<Navbar title="textUtlis"/>
+<Navbar title="TextUtlis"/>
 <div className="container"><Form heading="Enter here to go beyond"/></div>
   </>
   );
