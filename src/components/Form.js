@@ -10,6 +10,15 @@ export default function Form(props) {
         let smallText=text.toLowerCase();
         setText(smallText)
     }
+    const clickToClear= ()=>{
+        let smallText=""
+        setText(smallText)
+    }
+    const charToUppercase= ()=>{
+      let firstchar = text.charAt(0); // storing the first char of the string
+      let newText= firstchar.toUpperCase(); // converting that to uppercase
+      setText(newText+text.slice(1)); // printing it with rest excluding the first char by using slice
+    }
     const handleOnChange=(event)=>{
         console.log("Even was handled")
         setText(event.target.value)
@@ -31,7 +40,9 @@ export default function Form(props) {
         ></textarea>
       </div>
       <button className="btn  btn-primary mx-3" onClick={clickToUppercase}>Convert to uppercase</button>
-      <button className="btn  btn-primary" onClick={clickToLowercase}>Convert to lowercase</button>
+      <button className="btn  btn-primary mx-3" onClick={clickToLowercase}>Convert to lowercase</button>
+      <button className="btn  btn-primary mx-3" onClick={clickToClear}>Clear Text</button>
+      <button className="btn  btn-primary" onClick={charToUppercase}>Capitalize first char</button>
     </div></div>
     <div className="container my-4">
       <h1>Stats of data you write</h1>
