@@ -46,6 +46,7 @@ export default function Form(props) {
               id="myBox"
               rows="8"
               onChange={handleOnChange}
+              style={{backgroundColor:props.mode==="light"?"grey":"white"}}
               value={text}
               placeholder="Hey 🙋‍♂️write here"
             ></textarea>
@@ -59,7 +60,7 @@ export default function Form(props) {
           <button className="btn  btn-primary mx-3" onClick={clickToClear}>
             Clear Text
           </button>
-          <button className="btn  btn-primary" onClick={charToUppercase}>
+          <button className="btn  btn-primary mx-3"   onClick={charToUppercase}>
             Capitalize first char
           </button>
           <button className="btn  btn-primary mx-3" onClick={toCopy}>
@@ -76,12 +77,12 @@ export default function Form(props) {
       <div className="container my-4">
         <h1>Stats of data you write</h1>
         <p>
-          You have write "{text.split(" ").length}" words and "{text.length}""
+          You have write "{text.split(" ").length-1}" words and "{text.length}
           characters
         </p>
         <p>{0.08 * text.split(" ").length} Minutes to read </p>
         <h2>Preview</h2>
-        <p>{text}</p>
+        <p>{text.length>0?text:"Enter something above in order to preview it"}</p>
       </div>
     </>
   );
