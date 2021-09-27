@@ -1,33 +1,41 @@
 import React, { useState } from "react";
 
 export default function Form(props) {
+
   const [text, setText] = useState("");
   const clickToUppercase = () => {
     let newText = text.toUpperCase();
     setText(newText);
-  };
+    props.showAlert('Successfully converted your text to uppercase ', 'success');
+  }
   const clickToLowercase = () => {
     let smallText = text.toLowerCase();
     setText(smallText);
+    props.showAlert("Successfully converted your text to lowercase","success")
   };
   const clickToClear = () => {
     let smallText = "";
     setText(smallText);
+    props.showAlert("You cleared all you text", "success")
   };
   const charToUppercase = () => {
     let firstchar = text.charAt(0); // storing the first char of the string
     let newText = firstchar.toUpperCase(); // converting that to uppercase
     setText(newText + text.slice(1)); // printing it with rest excluding the first char by using slice
+    props.showAlert("Dark mode is enabled","success")
   };
 
   const toCopy = () => {
     var text = document.getElementById("myBox");
     text.select();
     navigator.clipboard.writeText(text.value);
+    props.showAlert("Text copied", "success") 
   };
+
   const toRemoveExtraSpaces = () => {
     let newText = text.split(/[ ]+/);
     setText(newText.join(" "))
+    props.showAlert("You removed extra spaces","success")
   };
 
   const handleOnChange = (event) => {
@@ -51,19 +59,20 @@ export default function Form(props) {
               placeholder="Hey 🙋‍♂️write here"
             ></textarea>
           </div>
-          <button className="btn  btn-primary mx-3" onClick={clickToUppercase}>
+          <div className="conatiner">
+          <button className="btn  btn-primary mx-3 my-3" onClick={clickToUppercase}>
             Convert to uppercase
           </button>
-          <button className="btn  btn-primary mx-3" onClick={clickToLowercase}>
+          <button className="btn  btn-primary mx-3 my-3" onClick={clickToLowercase}>
             Convert to lowercase
           </button>
-          <button className="btn  btn-primary mx-3" onClick={clickToClear}>
+          <button className="btn  btn-primary mx-3 my-3" onClick={clickToClear}>
             Clear Text
           </button>
-          <button className="btn  btn-primary mx-3"   onClick={charToUppercase}>
-            Capitalize first char
+          <button className="btn  btn-primary mx-3 my-3"   onClick={charToUppercase}>
+            Capitalize the first character
           </button>
-          <button className="btn  btn-primary mx-3" onClick={toCopy}>
+          <button className="btn  btn-primary mx-3 my-3" onClick={toCopy}>
             Copy Text
           </button>
           <button
@@ -72,6 +81,7 @@ export default function Form(props) {
           >
             Remove spaces
           </button>
+          </div>
         </div>
       </div>
       <div className="container my-4">

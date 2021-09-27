@@ -66,7 +66,7 @@ const [btnText,setBtnText]=useState("Enabled dark mode")
   </div>
   <div class="form-check form-switch container my-5">
   <input class="form-check-input" onClick={darkMode} type="checkbox" id="flexSwitchCheckDefault"/>
-  <label class="form-check-label" for="flexSwitchCheckDefault">{btnText}</label>
+  <label class="form-check-label" htmlFor="flexSwitchCheckDefault">{btnText}</label>
 </div>
 </div>
     </div>
