@@ -56,7 +56,7 @@ export default function Form(props) {
               onChange={handleOnChange}
               style={{backgroundColor:props.mode==="light"?"grey":"white"}}
               value={text}
-              placeholder="Hey 🙋‍♂️write here"
+              placeholder= {props.emoji} 
             ></textarea>
           </div>
           <div className="conatiner">
@@ -87,7 +87,7 @@ export default function Form(props) {
       <div className="container my-4">
         <h1>Stats of data you write</h1>
         <p>
-          You have write "{text.split(" ").length-1}" words and "{text.length}
+          You have write "{text.split(" ").length-1}" words and "{text.length}" 
           characters
         </p>
         <p>{0.08 * text.split(" ").length} Minutes to read </p>
